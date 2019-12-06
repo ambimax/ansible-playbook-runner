@@ -1,0 +1,23 @@
+# action.yml
+name: 'Ansible Playbook Runner'
+description: 'Run an ansible playbook'
+inputs:
+  HOSTS_FILE:
+    description: 'Inventory file to use'
+    required: false
+    default: hosts.ini
+  PLAYBOOK_FILE:
+    description: 'Playbook file to use'
+    required: false
+    default: playbook.yml
+  REQUIRED_ROLES_FILE:
+    description: 'Required roles file to use'
+    required: false
+    default: required-roles.yml
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.HOSTS_FILE }}
+    - ${{ inputs.PLAYBOOK_FILE }}
+    - ${{ inputs.REQUIRED_ROLES_FILE }}
