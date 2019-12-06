@@ -25,5 +25,6 @@ ENV SSH_KEY false
 ENV HOSTS_FILE hosts.ini
 ENV PLAYBOOK_FILE playbook.yml
 ENV REQUIRED_ROLES_FILE required-roles.yml
+ENV KNOWN_HOSTS_FILE known_hosts
 
 ENTRYPOINT ["/entrypoint.sh"]
