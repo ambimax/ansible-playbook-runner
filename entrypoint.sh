@@ -15,7 +15,7 @@ if [ -f "${KNOWN_HOSTS_FILE}" ]; then
 fi;
 
 if [ ! -z "${SSH_KEY}" ]; then
-    echo ${SSH_KEY} > /root/.ssh/id_rsa;
+    echo -e "$SSH_KEY" > /root/.ssh/id_rsa;
 fi;
 
 ls -lah /root/.ssh
