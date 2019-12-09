@@ -7,6 +7,10 @@ function error_exit {
 
 pwd
 
+ls -lah /root/.ssh
+cat /root/.ssh/id_rsa
+cat /root/.ssh/known_hosts
+
 if [ ! -f "${HOSTS_FILE}" ]; then error_exit "hosts file not found"; fi;
 if [ ! -f "${PLAYBOOK_FILE}" ]; then error_exit "playbook file not found"; fi;
 
