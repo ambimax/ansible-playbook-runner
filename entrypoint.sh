@@ -15,15 +15,15 @@ if [ -f "${KNOWN_HOSTS_FILE}" ]; then
 fi;
 
 if [ -z "${SSH_KEY}" ]; then
-    echo ${SSH_KEY} > /root/.ssh/id_rsa;
+    echo "Yes, I am in!"
+    ssh-agent -a ${SSH_KEY} > /dev/null
+    ssh-add - <<< ${SSH_KEY}
+    # echo ${SSH_KEY} > /root/.ssh/id_rsa;
 fi;
 
 ls -lah /root/.ssh
 echo "ssh_key"
 echo ${SSH_KEY}
-echo "\n"
-echo "input_ssh_key"
-echo ${INPUT_SSH_KEY}
 echo "\n"
 
 if [ -f "${REQUIRED_ROLES_FILE}" ]; then
