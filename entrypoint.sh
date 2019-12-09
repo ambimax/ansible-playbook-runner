@@ -19,6 +19,12 @@ if [ -z "${SSH_KEY}" ]; then
 fi;
 
 ls -lah /root/.ssh
+echo "ssh_key"
+echo ${SSH_KEY}
+echo "\n"
+echo "input_ssh_key"
+echo ${INPUT_SSH_KEY}
+echo "\n"
 
 if [ -f "${REQUIRED_ROLES_FILE}" ]; then
     ansible-galaxy install -r ${REQUIRED_ROLES_FILE} -p roles;
