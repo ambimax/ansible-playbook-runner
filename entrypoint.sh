@@ -17,7 +17,7 @@ fi;
 if [ -z "${SSH_KEY}" ]; then
     echo "Yes, I am in!"
     ssh-agent -a ${SSH_KEY} > /dev/null
-    ssh-add - <<< ${SSH_KEY}
+    ssh-add - <<< "${SSH_KEY}"
     # echo ${SSH_KEY} > /root/.ssh/id_rsa;
 fi;
 
