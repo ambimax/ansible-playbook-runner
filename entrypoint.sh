@@ -19,8 +19,6 @@ if [ -z "${SSH_KEY}" ]; then
 fi;
 
 ls -lah /root/.ssh
-cat /root/.ssh/id_rsa
-cat /root/.ssh/known_hosts
 
 if [ -f "${REQUIRED_ROLES_FILE}" ]; then
     ansible-galaxy install -r ${REQUIRED_ROLES_FILE} -p roles;
