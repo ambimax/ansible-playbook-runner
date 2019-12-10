@@ -14,8 +14,10 @@ jobs:
       - uses: actions/checkout@v1
       - name: Build docker image
         run: |
-          git rev-parse --short HEAD
+          docker image build -t "ambimax/ansible-playbook-runner:develop-$(git rev-parse --short HEAD)" .
 
       - name: Push docker image
         run: |
-          echo "blah"
+          docker login
+          docker image tag ambimax/ansible-playbook-runner:develop-$(git rev-parse --short HEAD) ambimax/ansible-playbook-runner
+          docker image push ambimax/ansible-playbook-runner
