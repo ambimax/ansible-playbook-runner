@@ -1,5 +1,2 @@
 .DS_STORE
-tests/test.sh
-tests/*.retry
 roles/
-tests/requirements.yml
