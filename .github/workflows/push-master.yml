@@ -16,14 +16,8 @@ jobs:
       #   run: |
       #     docker image build -t "ambimax/ansible-playbook-runner:develop-$(git rev-parse --short HEAD)" .
 
-      - name: Log in to registry
-        uses: actions/docker/login@master
-        env:
-          DOCKER_REGISTRY_URL: docker.pkg.github.com
-          DOCKER_USERNAME: ${{ github.actor }}
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Push docker image
         run: |
+          docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
           docker image tag ambimax/ansible-playbook-runner:develop-$(git rev-parse --short HEAD) ambimax/ansible-playbook-runner
           docker image push ambimax/ansible-playbook-runner
