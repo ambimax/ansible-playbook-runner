@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Build docker image
-        run: |
-          docker image build -t "ambimax/ansible-playbook-runner:develop-$(git rev-parse --short HEAD)" .
+      # - name: Build docker image
+      #   run: |
+      #     docker image build -t "ambimax/ansible-playbook-runner:develop-$(git rev-parse --short HEAD)" .
 
       - name: Log in to registry
         uses: actions/docker/login@master
