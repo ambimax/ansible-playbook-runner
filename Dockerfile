@@ -27,4 +27,6 @@ ENV PLAYBOOK_FILE playbook.yml
 ENV REQUIRED_ROLES_FILE required-roles.yml
 ENV KNOWN_HOSTS_FILE known_hosts
 
+RUN ansible-galaxy collection install amazon.aws
+
 ENTRYPOINT ["/entrypoint.sh"]
