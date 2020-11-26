@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.11
 
 LABEL "com.github.actions.name" = "Ansible Playbook Runner"
 LABEL "com.github.actions.description" = "Runs ansible playbooks"
@@ -7,7 +7,8 @@ LABEL "com.github.actions.color" = "white"
 LABEL "repository" = "https://github.com/ambimax/ansible-playbook-runner"
 LABEL "homepage" = "https://github.com/ambimax/ansible-playbook-runner"
 
-RUN apk add bash curl openssh-client gcc python3-dev libc-dev libffi-dev openssl-dev git
+RUN apk add bash curl openssh-client gcc python3-dev libc-dev libffi-dev openssl-dev git &&\
+    apk add --no-cache --update python3
 RUN pip3 install --upgrade ansible
 
 COPY entrypoint.sh /entrypoint.sh
